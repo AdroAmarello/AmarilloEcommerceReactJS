@@ -1,0 +1,9 @@
+.cestaIcon {
+    background: transparent;
+    color: black;
+}
+
+.cestaIcon img{
+    width: 20px;;
+    display: block;
+}
