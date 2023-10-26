@@ -1,15 +1,15 @@
 import classes from './NavBar.module.css';
-import Button from '../Button/Button';
 import CartWidget from '../CartWidget/CartWidget';
+import { NavLink } from 'react-router-dom'
 
 const NavBar = () => {
     return (
         <nav className={classes.nav}>
-            <h3 className={classes.nombreLogo}>Tienda Online Trigo Limpio</h3>
+            <NavLink to='/' className={classes.nombreLogo}>Tienda Online Trigo Limpio</NavLink>
             <div>
-                <Button label={'Hierbas'}/>
-                <Button label={'Cereales'}/>
-                <Button label={'Legumbres'}/>
+                <NavLink to='/category/hierbas'>Hierbas</NavLink>
+                <NavLink to='/category/cereales'>Cereales</NavLink>
+                <NavLink to='/category/legumbres'>Legumbres</NavLink>
                 <CartWidget />
             </div>
 

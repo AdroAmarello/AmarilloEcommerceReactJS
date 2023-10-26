@@ -5,5 +5,11 @@
 
 .cestaIcon img{
     width: 20px;;
-    display: block;
+    display: inline-block;
 }
+
+.prueba{
+    font-size: 2rem;
+    
+}
+
