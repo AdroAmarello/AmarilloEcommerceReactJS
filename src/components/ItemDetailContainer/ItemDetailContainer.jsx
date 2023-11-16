@@ -1,6 +1,7 @@
 import { useAsync } from "../hooks/useAsync"
-import { getProductById } from "../../asyncMock"
+// import { getProductById } from "../../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import  { getProductById } from '../../services/firebase/firestore/products'
 import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () =>{
