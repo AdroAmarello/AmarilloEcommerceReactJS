@@ -1,4 +1,4 @@
-import { useAsync } from "../hooks/useAsync"
+import { useAsync } from "../../hooks/useAsync"
 // import { getProductById } from "../../asyncMock"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import  { getProductById } from '../../services/firebase/firestore/products'

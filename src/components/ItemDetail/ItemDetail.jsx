@@ -9,7 +9,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
 
     const handleOnAdd = (quantity) => {       
         const productToAdd = {
-            id, name, price, quantity
+            id, img, name, price, quantity
         }
 
         addItem(productToAdd)
@@ -24,7 +24,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                 <p>Descripción: {description}</p>
                 <p>Stock disponible: {stock}</p>
             </section>
-            <footer>
+            <footer className={classes.footer}>
                 {
                     isInCart(id) ? (
                     <Link to='/cart'>Finalizar Compra</Link>

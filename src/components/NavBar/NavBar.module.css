@@ -1,6 +1,7 @@
 .nav {
     background-color:#646cff;
     width: 100%;
+    padding: .5em;
 }
 .nombreLogo{
     margin: 0 0 10px;

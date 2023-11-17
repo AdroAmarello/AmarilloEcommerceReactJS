@@ -12,7 +12,7 @@ const CartWidget = () =>{
         <>
             <button className={`${classes.cestaIcon}`} onClick={() => navigate('/cart')}>
                 <img src={cestaIcon}  alt="Cesta" /> 
-                {totalQuantity}
+                <span>{totalQuantity}</span>
             </button>
         </>
     )
