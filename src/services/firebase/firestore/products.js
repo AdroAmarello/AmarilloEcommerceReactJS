@@ -1,5 +1,4 @@
 import { db } from '../firebaseConfig'
-
 import { getDocs, collection, query, where, getDoc, doc } from 'firebase/firestore'
 
 export const getProducts = (categoryId) => {

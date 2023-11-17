@@ -1,26 +1,13 @@
-// import classes from './ItemCount.module.css';
-import { useState } from 'react';
+import { useCount } from '../hooks/useCount';
 
-const ItemCount = ({stock, initial, onAdd}) => {
-    const [quantity, setQuantity] = useState(initial)
-
-    const increment = () => {
-        if(quantity < stock) {
-            setQuantity(quantity + 1)
-        }
-    }
-
-    const decrement = () => {
-        if(quantity > 1) {
-            setQuantity(quantity - 1)
-        }
-    }
-
+const ItemCount = ({ onAdd }) => {
+    const {count, decrement, increment} = useCount(0)
+    
     return(
         <div>
-            <h2>{quantity}</h2>
+            <h2>{count}</h2>
             <button onClick={decrement}>-</button>
-            <button onClick={() => onAdd(quantity)}>Agregar a la cesta</button>
+            <button onClick={() => onAdd(count)}>Agregar a la cesta</button>
             <button onClick={increment}>+</button>
         </div>
     )

@@ -2,8 +2,16 @@ import classes from './NavBar.module.css';
 import CartWidget from '../CartWidget/CartWidget';
 import { NavLink, useNavigate } from 'react-router-dom'
 
+// import { getCategories } from '../../services/firebase/firestore/categories';
+// import { useAsync } from '../hooks/useAsync';
+
 const NavBar = () => {
     const navigate = useNavigate()
+
+    // const asyncFunction = () => getCategories()
+
+    // const { data: categories} = useAsync(asyncFunction, [])
+    // console.log(categories)
     return (
         <nav className={classes.nav}>
             <h1 onClick={() => navigate('/')} className={classes.nombreLogo}>Tienda Online Trigo Limpio</h1>
