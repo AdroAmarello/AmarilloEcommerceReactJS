@@ -2,23 +2,30 @@ import { useState } from 'react'
 import { useCart } from '../../context/CartContext'
 import { getDocs, collection, query, where, documentId, writeBatch, addDoc } from 'firebase/firestore'
 import { db } from '../../services/firebase/firebaseConfig'
+import CheckoutForm from '../CheckoutForm/CheckoutForm'
 
 const Checkout = () =>{
     const [orderId, setOrderId] = useState('')
     const [loading, setLoading] = useState(false)
     const { cart, total, clearCart } = useCart()
 
-    const createOrder = async (userData) => {
+    const createOrder = async ({firstName, lastName, email, phone}) => {
+                
         try {
             setLoading(true)
 
             const objOrder = {
                 buyer: {
-                    
+                    name: firstName, 
+                    lastName: lastName, 
+                    email: email, 
+                    phone:phone
                 },
                 items: cart,
-                total
+                total,
+                
             }
+            console.log(objOrder)
 
             const batch = writeBatch(db)
             const outOfStock = []
@@ -26,15 +33,20 @@ const Checkout = () =>{
             const ids = cart.map(prod => prod.id)
 
             const productsRef = query(collection(db, 'products'), where(documentId(), 'in', ids))
-
+            
+            
+            
             const { docs } = await getDocs(productsRef)
-    
+                
             docs.forEach(async documentSnapshot => {
                 const fields = documentSnapshot.data()
                 const stockDb = fields.stock
-    
+                console.log(stockDb)
+                
                 const productAddedToCart = cart.find(prod => prod.id === documentSnapshot.id)
                 const prodQuantity = productAddedToCart.quantity
+                console.log(prodQuantity)
+                
     
                 if(stockDb >= prodQuantity) {
                     batch.update(documentSnapshot.ref, { stock: stockDb - prodQuantity})
@@ -72,8 +84,7 @@ const Checkout = () =>{
     return (
         <>
             <h1>Finalizar compra</h1>
-
-
+            <CheckoutForm onConfirm={createOrder}/>
         </>
     )
 
