@@ -1,7 +1,9 @@
 import { useCount } from '../../hooks/useCount';
 
-const ItemCount = ({ onAdd }) => {
-    const {count, decrement, increment} = useCount(0)
+
+const ItemCount = ({ onAdd, stock }) => {
+    const {count, decrement, increment} = useCount(0);
+    
     
     return(
         <div>

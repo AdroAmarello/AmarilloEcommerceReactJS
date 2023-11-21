@@ -1,7 +1,6 @@
 import classes from './Cart.module.css';
 import { Link } from 'react-router-dom'
 import { useCart } from '../../context/CartContext'
-import { count } from 'firebase/firestore';
 
 import ItemCart from '../ItemCart/ItemCart';
 

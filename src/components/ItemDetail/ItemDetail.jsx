@@ -3,7 +3,7 @@ import ItemCount from "../ItemCount/ItemCount"
 import { useCart } from '../../context/CartContext'
 import { Link } from 'react-router-dom'
 
-const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
+const ItemDetail = ({ id, name, img, price, stock, description }) => {
 
     const { addItem, isInCart } = useCart()
 
@@ -29,7 +29,7 @@ const ItemDetail = ({ id, name, category, img, price, stock, description }) => {
                     isInCart(id) ? (
                     <Link to='/cart'>Finalizar Compra</Link>
                     ) : (
-                        <ItemCount stock={stock} initial={1} onAdd={handleOnAdd}/>
+                        <ItemCount stock={stock} onAdd={handleOnAdd}/>
                     ) 
                 }
             </footer>

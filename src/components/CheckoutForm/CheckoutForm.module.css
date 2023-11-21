@@ -1,0 +1,25 @@
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form label {
+    display: block;
+    text-align: left;
+}
+
+.form input {
+    width: 100%
+}
+
+.form button{
+    margin-top: 1em;
+}
+
+.form p {
+    width: 100%;
+    color: tomato;
+    font-size: x-small;
+    text-align: left;
+}

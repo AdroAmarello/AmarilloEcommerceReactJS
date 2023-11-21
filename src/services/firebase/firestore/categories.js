@@ -1,20 +1,19 @@
-import { getDocs, collection } from 'firebase/firestore';
+import { createAdaptedCategories } from '../../../adapters/createAdaptedCategories'
+import { getDocs, collection, query, orderBy } from 'firebase/firestore';
 import { db } from '../firebaseConfig'
 
 export const getCategories = () => {
-    const categoriesRef = collection(db, 'categories')
-
-    return getDocs(categoriesRef)
-        .then(querySapshot => {
-            const categoriesAdapted = querySapshot.docs.map(documentSnapshot => {
-                const fields = documentSnapshot.data()
-                return { id: documentSnapshot.id, ...fields }
+    
+        const categoriesRef = query(collection(db, 'categories'), orderBy('order'))
+        
+        getDocs(categoriesRef)
+            .then(querySnapshot => {
+                const categoriesAdapted = querySnapshot.docs.map(documentSnapshot => {
+                    return createAdaptedCategories(documentSnapshot)
+                })
+                return (categoriesAdapted)
             })
-
-            return categoriesAdapted
-        })
-        .catch(error => {
-            reject(error)
-        })
-
+            .catch(error => {
+                reject(error)
+            })
 }

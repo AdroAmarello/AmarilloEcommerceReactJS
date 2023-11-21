@@ -3,6 +3,8 @@ import { useCart } from '../../context/CartContext'
 import { getDocs, collection, query, where, documentId, writeBatch, addDoc } from 'firebase/firestore'
 import { db } from '../../services/firebase/firebaseConfig'
 import CheckoutForm from '../CheckoutForm/CheckoutForm'
+import { notifyOutOfStock } from '../../context/notificationCart/notificationCart'
+
 
 const Checkout = () =>{
     const [orderId, setOrderId] = useState('')
@@ -25,29 +27,23 @@ const Checkout = () =>{
                 total,
                 
             }
-            console.log(objOrder)
-
+            
             const batch = writeBatch(db)
             const outOfStock = []
 
             const ids = cart.map(prod => prod.id)
 
             const productsRef = query(collection(db, 'products'), where(documentId(), 'in', ids))
-            
-            
-            
+                        
             const { docs } = await getDocs(productsRef)
                 
             docs.forEach(async documentSnapshot => {
                 const fields = documentSnapshot.data()
                 const stockDb = fields.stock
-                console.log(stockDb)
-                
+                                
                 const productAddedToCart = cart.find(prod => prod.id === documentSnapshot.id)
                 const prodQuantity = productAddedToCart.quantity
-                console.log(prodQuantity)
-                
-    
+                    
                 if(stockDb >= prodQuantity) {
                     batch.update(documentSnapshot.ref, { stock: stockDb - prodQuantity})
                 } else {
@@ -63,6 +59,7 @@ const Checkout = () =>{
                     setOrderId(id)
                     console.log(`El id de su orden es ${id}`)
                 } else {
+                    notifyOutOfStock()
                     console.log('No hay stock de algun producto')
                 }
             })

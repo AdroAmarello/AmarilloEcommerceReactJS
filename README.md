@@ -1,8 +1,23 @@
-# React + Vite
+# Ecommerce Amarillo
+Ecommerce para curso de React JS de CODERHOUSE
+## Para correrlo localmente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```sh
+$ git clone https://github.com/AdroAmarello/AmarilloEcommerceReactJS.git
+$ cd AmarilloEcommerceReactJS
+$ npm install
+$ npm run dev
+```
+## Variables de Entorno
 
-Currently, two official plugins are available:
+Ver archivo [.env.example](https://github.com/AdroAmarello/AmarilloEcommerceReactJS/blob/AmarilloProyectoFinal/env.example) como ejemplo.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Tecnologías / Librerías
+
+- [Create-React-App](https://create-react-app.dev/)
+- [Firebase](https://firebase.com/)
+- [React-hook-form](https://react-hook-form.com/)
+- [React-Toastify](https://fkhadra.github.io/react-toastify/introduction/)
+
+## Proceso de compra
