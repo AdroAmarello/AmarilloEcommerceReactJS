@@ -1,5 +1,5 @@
 import classes from './CheckoutForm.module.css'
-import { appendErrors, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 const CheckoutForm = ({onConfirm}) => {
     const {register, handleSubmit, formState:{errors}} = useForm();

@@ -2,9 +2,8 @@ import { useCount } from '../../hooks/useCount';
 
 
 const ItemCount = ({ onAdd, stock }) => {
-    const {count, decrement, increment} = useCount(0);
-    
-    
+    const {count, decrement, increment} = useCount((stock>0 ? 1 : 0), stock);
+        
     return(
         <div>
             <h2>{count}</h2>

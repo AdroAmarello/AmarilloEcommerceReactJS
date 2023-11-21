@@ -1,17 +1,18 @@
 import { useState } from "react"
 
-export const useCount = (initial = 1) => {
+export const useCount = (initial = 0, maxCount) => {
+
     const [count, setCount] = useState(initial)
 
     const decrement = () => {
-        setCount(old => old - 1)
+        count > initial && setCount (prevCount => prevCount - 1 )
     }
 
     const increment = () => {
-        setCount(old => old + 1)
+        count < maxCount && setCount (prevCount => prevCount + 1)
     }
 
-    return {
+    return{
         count,
         decrement,
         increment

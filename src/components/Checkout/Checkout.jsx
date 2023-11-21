@@ -75,12 +75,12 @@ const Checkout = () =>{
     }
 
     if(orderId) {
-        return <h1>Su código de pedido es: {orderId}</h1>
+        return <h1>El código de su orden de compra es: {orderId}</h1>
     }
 
     return (
         <>
-            <h1>Finalizar compra</h1>
+            <h1>Crear orden de compra</h1>
             <CheckoutForm onConfirm={createOrder}/>
         </>
     )
