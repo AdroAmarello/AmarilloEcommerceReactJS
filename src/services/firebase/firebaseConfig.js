@@ -6,12 +6,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyA2l7wzkW1i6eDcwqv-H8-vMW2ixZK0KLg",
-  authDomain: "amarilloecommerce.firebaseapp.com",
-  projectId: "amarilloecommerce",
-  storageBucket: "amarilloecommerce.appspot.com",
-  messagingSenderId: "714180068512",
-  appId: "1:714180068512:web:daa34275f84c5e304935c5"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
