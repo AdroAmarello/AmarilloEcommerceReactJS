@@ -39,3 +39,8 @@ En el formulario se solicita nombre, apellido, correo electrónico y número tel
 Luego se informa por pantalla el código de orden de compra.
 
 Las categorías, los productos y las órdenes de compra se encuentran en el BAAS Firebase.
+
+
+## Despliegue de la tienda en Vercel
+
+[Tienda Trigo Limpio](https://amarilloecommerce-reactjs.vercel.app/)
