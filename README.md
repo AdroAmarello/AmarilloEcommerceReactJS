@@ -10,7 +10,7 @@ $ npm run dev
 ```
 ## Variables de Entorno
 
-Ver archivo [.env.example](https://github.com/AdroAmarello/AmarilloEcommerceReactJS/blob/AmarilloProyectoFinal/env.example) como ejemplo.
+Ver archivo [.env.example](https://github.com/AdroAmarello/AmarilloEcommerceReactJS/blob/AmarilloProyectoFinal/.env.example) como ejemplo.
 
 
 ## Tecnologías / Librerías
